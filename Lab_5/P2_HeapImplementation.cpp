@@ -115,9 +115,9 @@ void minHeapify(struct minHeap*minHeap,int idx)
 
     if(left<minHeap->size && minHeap->array[left]->key < minHeap->array[smallest]->key)
         smallest=left;
-    if(right<minHeap->size && minHeap->array[right]->key>minHeap->array[smallest]->key)
-        smallest=right;
-    
+    if(right<minHeap->size && minHeap->array[right]->key < minHeap->array[smallest]->key)
+    smallest=right;
+
     if(smallest!=idx)
     {
         struct minHeapNode* smallestNode=minHeap->array[smallest];
@@ -226,7 +226,7 @@ void primMST(struct Graph*graph,int startNode)
         
     }
     printf("Edge   Weight\n");
-    long long int totalWeight=0;
+    int totalWeight=0;
     for (int i = 1; i < V; ++i)
     {
         if(i!=startNode)
@@ -235,10 +235,9 @@ void primMST(struct Graph*graph,int startNode)
         totalWeight += key[i];
         }
     }
-    printf("Total Weight of MST: %lld\n", totalWeight);
-        
-
+    printf("Total Weight of MST: %d\n", totalWeight);
 }
+
 int main()
 {
 
